@@ -25,7 +25,7 @@ class _loadingpageState extends State<loadingpage> {
     rememberMeLogic();
     _controller = VideoPlayerController.asset(
         "flutter_assets/assets/video/adminLightmind.mp4");
-    _initializeVideoPlayerFuture = _controller.initialize();
+
     videoplay();
     // checkConnection();
     super.initState();
@@ -37,18 +37,16 @@ class _loadingpageState extends State<loadingpage> {
   // }
 
   void videoplay() async {
+    _initializeVideoPlayerFuture = _controller.initialize();
     await _controller.play();
-    print("hello");
-    print(_initializeVideoPlayerFuture);
     Future.delayed(const Duration(milliseconds: 1350), () {});
   }
 
-  @override
-  void dispose() {
-    // Ensure disposing of the VideoPlayerController to free up resources.
-    _controller.dispose();
-    super.dispose();
-  }
+  // void dispose() {
+  //   // Ensure disposing of the VideoPlayerController to free up resources.
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
   void rememberMeLogic() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -62,9 +60,10 @@ class _loadingpageState extends State<loadingpage> {
         print(pref.getString("email"));
         print(pref.getString("password"));
         await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: pref.getString("email").toString(),
-          password: pref.getString("password").toString(),
+          email: pref.getString("email").toString().trim(),
+          password: pref.getString("password").toString().trim(),
         );
+        print("hello bro whats ap");
         await Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const homepage()),
