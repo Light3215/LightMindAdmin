@@ -32,14 +32,14 @@ class users {
 
   static updateData(String key, var value) async {
     await FirebaseFirestore.instance
-        .collection("user")
+        .collection("adminUser")
         .doc(cred?.uid)
         .update({key: value});
   }
 
   static getData() async {
     var snap = await FirebaseFirestore.instance
-        .collection("user")
+        .collection("adminUser")
         .doc(cred?.uid)
         .get();
     return snap.data();

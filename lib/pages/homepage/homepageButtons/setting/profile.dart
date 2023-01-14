@@ -13,7 +13,7 @@ class _profileState extends State<profile> {
   String getProfileData(String d) {
     var value = "";
     var docRef = FirebaseFirestore.instance
-        .collection("user")
+        .collection("adminUser")
         .doc(FirebaseAuth.instance.currentUser?.uid);
     docRef.get().then(
       (DocumentSnapshot doc) {

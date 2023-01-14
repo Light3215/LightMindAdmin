@@ -18,7 +18,7 @@ class _bookmarkState extends State<bookmark> {
   late Stream<QuerySnapshot<Map<String, dynamic>>> dataLoaded;
   Stream<QuerySnapshot<Map<String, dynamic>>> readData() =>
       FirebaseFirestore.instance
-          .collection("user")
+          .collection("adminUser")
           .doc(FirebaseAuth.instance.currentUser?.uid)
           .collection("bookmarked")
           .snapshots();

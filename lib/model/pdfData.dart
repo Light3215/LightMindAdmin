@@ -70,7 +70,7 @@ class PdfData {
   //       con = doc.exists;
   //     });
   //     await FirebaseFirestore.instance
-  //         .collection("user")
+  //         .collection("adminUser")
   //         .doc(username)
   //         .collection("report")
   //         .doc(snap["Pid"])
@@ -145,7 +145,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayRemove([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -160,7 +160,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayUnion([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -189,7 +189,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayRemove([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -205,7 +205,7 @@ class PdfData {
         });
 
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -231,7 +231,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayRemove([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -246,7 +246,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayUnion([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -273,7 +273,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayRemove([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -289,7 +289,7 @@ class PdfData {
           "bookmarked user": FieldValue.arrayUnion([username])
         });
         await FirebaseFirestore.instance
-            .collection("user")
+            .collection("adminUser")
             .doc(currUser)
             .collection("bookmarked")
             .doc(snap["Pid"])
@@ -311,7 +311,7 @@ class PdfData {
 //     // for un-like
 //     if (snap['liked user'].contains(username)) {
 //       await FirebaseFirestore.instance
-//           .collection("user")
+//           .collection("adminUser")
 //           .doc(currUser)
 //           .collection("bookmarked")
 //           .doc(snap["Pid"])
@@ -321,7 +321,7 @@ class PdfData {
 //       //for like
 //     } else {
 //       await FirebaseFirestore.instance
-//           .collection("user")
+//           .collection("adminUser")
 //           .doc(currUser)
 //           .collection("bookmarked")
 //           .doc(snap["Pid"])
@@ -357,7 +357,7 @@ class PdfData {
   //         .doc(snap["Pid"])
   //         .update({"report": reportMap});
   //     await FirebaseFirestore.instance
-  //         .collection("user")
+  //         .collection("adminUser")
   //         .doc(username)
   //         .collection("report")
   //         .doc(snap["Pid"])
@@ -375,7 +375,7 @@ class PdfData {
   //       'report': reportMap,
   //     });
   //     await FirebaseFirestore.instance
-  //         .collection("user")
+  //         .collection("adminUser")
   //         .doc(username)
   //         .collection("report")
   //         .doc(snap["Pid"])

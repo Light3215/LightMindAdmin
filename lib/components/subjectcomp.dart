@@ -6,7 +6,7 @@ import 'package:iiestadmin/components/PDFsAdd/addSingleSet.dart';
 import 'package:iiestadmin/components/PDFsEdit/editDoubleSet.dart';
 import 'package:iiestadmin/components/PDFsEdit/editSingleSet.dart';
 import 'package:iiestadmin/model/pdfData.dart';
-import 'package:iiestadmin/pages/subjects/Chapter/chapter.dart';
+import 'package:iiestadmin/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 subparts(title, titlecontext, titlepages) {
@@ -153,4 +153,30 @@ FloatingActionButton PDFeditingbutton(context, subject, type, chapter, snap) {
         color: Colors.black,
         size: 35,
       ));
+}
+
+areYouSure(context, snap) {
+  return showDialog(
+      context: context,
+      builder: ((context) => AlertDialog(
+            title: const Text('Delete'),
+            content: SizedBox(
+                height: screenheight(context) * 0.10,
+                child: const Text("are you sure you want to delete the PDf?")),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  PdfData.deletePDFs(snap);
+                  Navigator.pop(context);
+                },
+                child: const Text("Delete"),
+              )
+            ],
+          )));
 }

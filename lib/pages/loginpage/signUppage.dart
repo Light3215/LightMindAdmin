@@ -210,7 +210,7 @@ class _signUpPageState extends State<signUpPage> {
           isVerified: FirebaseAuth.instance.currentUser!.emailVerified,
         );
         await _firestore
-            .collection("user")
+            .collection("adminUser")
             .doc(cred.user!.uid)
             .set(user1.toJson());
       }

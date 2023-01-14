@@ -28,7 +28,7 @@ class _settingsState extends State<settings> {
   late Stream<DocumentSnapshot<Map<String, dynamic>>> dataLoaded;
   Stream<DocumentSnapshot<Map<String, dynamic>>> readData() =>
       FirebaseFirestore.instance
-          .collection("user")
+          .collection("adminUser")
           .doc(FirebaseAuth.instance.currentUser?.uid)
           .snapshots();
 
