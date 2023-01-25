@@ -56,7 +56,15 @@ class _addSingleSetState extends State<addSingleSet> {
               ),
               TextFormField(
                 controller: LinkController,
-                decoration: const InputDecoration(labelText: 'Enter link'),
+                decoration: InputDecoration(
+                  labelText: 'Enter link',
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      openPDF(driveLink());
+                    },
+                    icon: const Icon(Icons.upload_file_outlined),
+                  ),
+                ),
               ),
               SizedBox(
                 height: screenheight(context) * 0.53,
@@ -73,8 +81,14 @@ class _addSingleSetState extends State<addSingleSet> {
                     borderRadius: BorderRadius.circular(25),
                     splashColor: Colors.yellow[800],
                     onTap: () {
-                      PdfData.addPDFs(type, subject, chapter,
-                          DescController.text, LinkController.text, "", "");
+                      PdfData.addPDFs(
+                          type,
+                          subject,
+                          chapter,
+                          DescController.text,
+                          linkManipualtion(LinkController.text),
+                          "",
+                          "");
                       Navigator.pop(context);
                     },
                     child: isloading

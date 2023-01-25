@@ -180,7 +180,7 @@ class _settingsState extends State<settings> {
                   onTap: () async {
                     SharedPreferences sharedPreferences =
                         await SharedPreferences.getInstance();
-                    sharedPreferences.setBool("Remember me", false);
+                    sharedPreferences.setBool("admin Remember me", false);
                     setState(() {
                       FirebaseAuth.instance.signOut();
                       Navigator.push(

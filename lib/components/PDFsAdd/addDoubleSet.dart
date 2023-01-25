@@ -59,8 +59,15 @@ class _addDoubleSetState extends State<addDoubleSet> {
                   ),
                   TextFormField(
                     controller: QuesLinkController,
-                    decoration:
-                        const InputDecoration(labelText: 'Enter Question link'),
+                    decoration: InputDecoration(
+                      labelText: 'Enter Question link',
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          openPDF(driveLink());
+                        },
+                        icon: const Icon(Icons.upload_file_outlined),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -83,8 +90,15 @@ class _addDoubleSetState extends State<addDoubleSet> {
                   ),
                   TextFormField(
                     controller: AnsLinkController,
-                    decoration:
-                        const InputDecoration(labelText: 'Enter Answer link'),
+                    decoration: InputDecoration(
+                      labelText: 'Enter Answer link',
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          openPDF(driveLink());
+                        },
+                        icon: const Icon(Icons.upload_file_outlined),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -107,10 +121,11 @@ class _addDoubleSetState extends State<addDoubleSet> {
                           type,
                           subject,
                           chapter,
-                          QuesDescController.text,
-                          QuesLinkController.text,
-                          AnsDescController.text,
-                          AnsLinkController.text);
+                          QuesDescController.text.trim(),
+                          linkManipualtion(QuesLinkController.text.trim()),
+                          // QuesLinkController.text,
+                          AnsDescController.text.trim(),
+                          linkManipualtion(QuesLinkController.text.trim()));
                       Navigator.pop(context);
                     },
                     child: isloading

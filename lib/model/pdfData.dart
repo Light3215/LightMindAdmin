@@ -397,10 +397,10 @@ class PdfData {
   }
 
   static appfeedback(rep) async {
-    await FirebaseFirestore.instance.collection("AppReport").doc().set({
+    await FirebaseFirestore.instance.collection("Feedback").doc().set({
       "Uid": currUser,
       "Email": currEmail,
-      "report": rep,
+      "feedback": rep,
     });
   }
 

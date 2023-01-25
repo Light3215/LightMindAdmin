@@ -198,11 +198,11 @@ class _loginpageState extends State<loginpage> {
         password: PasswordController.text.trim(),
       );
       if (FirebaseAuth.instance.currentUser!.emailVerified) {
-        users.updateData("Is verified", true);
+        users.updateData("admin Is verified", true);
         if (rememberMe) {
-          pref.setString("email", EmailController.text);
-          pref.setString("password", PasswordController.text);
-          pref.setBool("Remember me", rememberMe);
+          pref.setString("admin Email", EmailController.text);
+          pref.setString("admin Password", PasswordController.text);
+          pref.setBool("admin Remember me", rememberMe);
         }
         // ignore: use_build_context_synchronously
         Navigator.pushReplacement(

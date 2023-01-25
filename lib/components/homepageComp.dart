@@ -46,6 +46,7 @@ Cards<Widget>(subjectname, subjectimage, subjectcontexts, subjectpage) {
   return Card(
       color: Colors.amber,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
             icon: Image.asset("$subjectimage"),

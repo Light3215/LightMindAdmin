@@ -57,12 +57,12 @@ class _loadingpageState extends State<loadingpage> {
     });
 
     try {
-      if (pref.getBool("Remember me") == true) {
-        print(pref.getString("email"));
-        print(pref.getString("password"));
+      if (pref.getBool("admin Remember me") == true) {
+        print(pref.getString("admin Email"));
+        print(pref.getString("admin Password"));
         await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: pref.getString("email").toString().trim(),
-          password: pref.getString("password").toString().trim(),
+          email: pref.getString("admin Email").toString().trim(),
+          password: pref.getString("admin Password").toString().trim(),
         );
 
         await Navigator.pushReplacement(

@@ -27,7 +27,7 @@ class users {
         "Username": Username,
         "Uid": Uid,
         "Email": Email,
-        "Is verified": isVerified,
+        "admin Is verified": isVerified,
       };
 
   static updateData(String key, var value) async {

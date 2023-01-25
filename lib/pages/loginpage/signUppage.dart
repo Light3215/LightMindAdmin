@@ -198,7 +198,7 @@ class _signUpPageState extends State<signUpPage> {
           email: EmailController.text.trim(),
           password: PasswordController.text.trim(),
         ));
-        pref.setString("Username", UsernameController.text);
+        pref.setString("admin Username", UsernameController.text);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const emailVerify()),

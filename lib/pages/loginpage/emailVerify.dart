@@ -38,7 +38,7 @@ class _emailVerifyState extends State<emailVerify> {
     });
 
     if (isEmailVerified) {
-      users.updateData("Is verified", true);
+      users.updateData("admin Is verified", true);
       timer?.cancel();
     }
   }
