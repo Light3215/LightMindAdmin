@@ -10,9 +10,13 @@ screenwidth(context) {
 }
 
 String driveLink() {
-  return "drive.google.com/drive/folders/1leEZpcp7ZA21p7zUctMiVV_KXJSJuNcZ";
+  return "drive.google.com/drive/folders/1eRAXFAkSBEm98jqWMw0YiK_dkhMRW1PE";
 }
 
 String linkManipualtion(String texts) {
-  return texts.substring(8);
+  if (texts.length >= 8) {
+    return texts.substring(8);
+  } else {
+    return "";
+  }
 }

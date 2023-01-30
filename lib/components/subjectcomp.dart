@@ -88,7 +88,7 @@ openPDF(pdf) {
     path: "$pdf",
   );
   try {
-    launchUrl(launchUri, mode: LaunchMode.externalApplication);
+    launchUrl(launchUri, mode: LaunchMode.externalNonBrowserApplication);
   } catch (e) {
     throw 'Could not launch $launchUri , $e ';
   }

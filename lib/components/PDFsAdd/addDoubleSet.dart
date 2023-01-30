@@ -125,7 +125,7 @@ class _addDoubleSetState extends State<addDoubleSet> {
                           linkManipualtion(QuesLinkController.text.trim()),
                           // QuesLinkController.text,
                           AnsDescController.text.trim(),
-                          linkManipualtion(QuesLinkController.text.trim()));
+                          linkManipualtion(AnsLinkController.text.trim()));
                       Navigator.pop(context);
                     },
                     child: isloading

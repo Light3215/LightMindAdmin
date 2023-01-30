@@ -168,7 +168,7 @@ class PdfData {
           'Pid': snap["Pid"],
           'answer desc': snap["answer desc"],
           'answer link': snap["answer link"],
-          "bookmarked user": FieldValue.arrayUnion([username]),
+          'bookmarked user': FieldValue.arrayUnion([username]),
           'chapter': snap["chapter"],
           'liked user': snap["liked user"],
           'question desc': snap["question desc"],
@@ -526,6 +526,12 @@ class PdfData {
           .doc(snap["Pid"])
           .delete();
     }
+    await FirebaseFirestore.instance
+        .collection("adminUser")
+        .doc(currUser)
+        .collection("bookmarked")
+        .doc(snap["Pid"])
+        .delete();
   }
 
   static editPDFs(
@@ -550,11 +556,33 @@ class PdfData {
         'question link': Queslink,
         'answer link': Anslink,
       });
+      await FirebaseFirestore.instance
+          .collection("adminUser")
+          .doc(currUser)
+          .collection("bookmarked")
+          .doc(snap["Pid"])
+          .update({
+        'question desc': Quesdesc,
+        'answer desc': Ansdesc,
+        'question link': Queslink,
+        'answer link': Anslink,
+      });
     } else if (type == "Assignment") {
       await FirebaseFirestore.instance
           .collection("Assignment")
           .doc(subject)
           .collection(chapter)
+          .doc(snap["Pid"])
+          .update({
+        'question desc': Quesdesc,
+        'answer desc': Ansdesc,
+        'question link': Queslink,
+        'answer link': Anslink,
+      });
+      await FirebaseFirestore.instance
+          .collection("adminUser")
+          .doc(currUser)
+          .collection("bookmarked")
           .doc(snap["Pid"])
           .update({
         'question desc': Quesdesc,
@@ -572,11 +600,29 @@ class PdfData {
         'desc': Quesdesc,
         'link': Queslink,
       });
+      await FirebaseFirestore.instance
+          .collection("adminUser")
+          .doc(currUser)
+          .collection("bookmarked")
+          .doc(snap["Pid"])
+          .update({
+        'desc': Quesdesc,
+        'link': Queslink,
+      });
     } else {
       await FirebaseFirestore.instance
           .collection("Extra")
           .doc(type)
           .collection(subject)
+          .doc(snap["Pid"])
+          .update({
+        'desc': Quesdesc,
+        'link': Queslink,
+      });
+      await FirebaseFirestore.instance
+          .collection("adminUser")
+          .doc(currUser)
+          .collection("bookmarked")
           .doc(snap["Pid"])
           .update({
         'desc': Quesdesc,

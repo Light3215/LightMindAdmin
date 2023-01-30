@@ -103,7 +103,7 @@ class _homepageState extends State<homepage> {
                               child: const Text(
                                 "Admin LightMind",
                                 style: TextStyle(
-                                  fontSize: 40,
+                                  fontSize: 35,
                                   fontFamily: "kalam",
                                   //text-color
                                   // color: Colors.amber

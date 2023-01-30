@@ -2,7 +2,7 @@
     package="com.example.iiestadmin">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="iiestadmin"
+        android:label="Admin LightMind"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
