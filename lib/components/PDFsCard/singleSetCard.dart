@@ -72,11 +72,11 @@ class _singleSetCardState extends State<singleSetCard> {
             bottom: screenheight(context) * 0.01),
         margin: EdgeInsets.symmetric(
             horizontal: screenwidth(context) * 0.04,
-            vertical: screenheight(context) * 0.02),
+            vertical: screenheight(context) * 0.013),
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-                color: Colors.black54,
+                color: Colors.grey,
                 blurRadius: 1,
                 spreadRadius: 3,
                 offset: Offset(2, 3))

@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iiestadmin/components/PDFsReport/PDFsReport.dart';
 import 'package:iiestadmin/pages/homepage/homepageButtons/book.dart';
 import 'package:iiestadmin/pages/homepage/homepageButtons/bookmark.dart';
 import 'package:iiestadmin/pages/homepage/homepageButtons/extra.dart';
@@ -61,8 +62,8 @@ class _homepageState extends State<homepage> {
           child: SlidingUpPanel(
             // color: Colors.blue,
             color: Colors.blue,
-            minHeight: screenheight(context) * 0.43,
-            maxHeight: screenheight(context) * 0.89,
+            minHeight: screenheight(context) * 0.44,
+            maxHeight: screenheight(context) * 0.895,
             header: Padding(
               padding: EdgeInsets.only(
                 left: screenwidth(context) * 0.47,
@@ -122,7 +123,7 @@ class _homepageState extends State<homepage> {
                                   Icons.settings,
                                   //setting-icon-color
                                   // color: Colors.amber,
-                                  size: 27,
+                                  size: 25,
                                 )),
                           ],
                         ),
@@ -173,9 +174,8 @@ class _homepageState extends State<homepage> {
                               Colors.orange[600], context, const book()),
                           HomepageIcons("Tests", Icons.edit_note_sharp,
                               Colors.teal[400], context, const Tests()),
-                          SizedBox(
-                            width: screenwidth(context) * 0.16,
-                          )
+                          HomepageIcons("Report", Icons.report,
+                              Colors.pink[400], context, const PDFsReport()),
                         ],
                       ),
                     ],
@@ -184,7 +184,7 @@ class _homepageState extends State<homepage> {
                 // homepage-behindPanelwidget-BgColor
                 Container(
                   // color: Colors.black,
-                  height: screenheight(context) * 0.47,
+                  height: screenheight(context) * 0.495,
                 )
               ],
             ),

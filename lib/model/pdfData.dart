@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:http/http.dart';
 
 class PdfData {
   final String Pid;
@@ -629,5 +630,59 @@ class PdfData {
         'link': Queslink,
       });
     }
+  }
+
+  static deleteReportPDFs(snap) async {
+    print(snap["type"]);
+    if (snap["type"] == "Assignment" || snap["type"] == "Theory") {
+      await FirebaseFirestore.instance
+          .collection(snap["type"])
+          .doc(snap["subject"])
+          .collection(snap["chapter"])
+          .doc(snap["Pid"])
+          .update({
+        "report": {
+          snap["report"]
+              .keys
+              .toString()
+              .substring(1, snap["report"].keys.toString().length - 1): ""
+        }
+      });
+    } else {
+      await FirebaseFirestore.instance
+          .collection("Extra")
+          .doc(snap["type"])
+          .collection(snap["subject"])
+          .doc(snap["Pid"])
+          .update({
+        "report": {
+          snap["report"]
+              .keys
+              .toString()
+              .substring(1, snap["report"].keys.toString().length - 1): ""
+        }
+      });
+    }
+    await FirebaseFirestore.instance
+        .collection("user")
+        .doc(snap["report"]
+            .keys
+            .toString()
+            .substring(1, snap["report"].keys.toString().length - 1))
+        .collection("report")
+        .doc(snap["Pid"])
+        .delete();
+    // for (var item in snap["report"].keys) {
+    //   await FirebaseFirestore.instance
+    //       .collection("user")
+    //       .doc(snap["report"].keys.toString())
+    //       .collection("report")
+    //       .doc(snap["Pid"])
+    //       .delete();
+    // }
+    await FirebaseFirestore.instance
+        .collection("report")
+        .doc(snap["Pid"])
+        .delete();
   }
 }

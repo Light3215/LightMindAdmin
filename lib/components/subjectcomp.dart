@@ -180,3 +180,32 @@ areYouSure(context, snap) {
             ],
           )));
 }
+
+areYouSureReport(context, snap) {
+  return showDialog(
+      context: context,
+      builder: ((context) => AlertDialog(
+            title: const Text('Delete'),
+            content: SizedBox(
+                height: screenheight(context) * 0.10,
+                child:
+                    const Text("are you sure you want to delete the report?")),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  PdfData.deleteReportPDFs(
+                    snap,
+                  );
+                  Navigator.pop(context);
+                },
+                child: const Text("Delete"),
+              )
+            ],
+          )));
+}

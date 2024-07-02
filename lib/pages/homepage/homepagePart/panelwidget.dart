@@ -25,8 +25,8 @@ class _panelwidgetState extends State<panelwidget> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-          left: screenwidth(context) * 0.02,
-          right: screenwidth(context) * 0.02,
+          left: screenwidth(context) * 0.03,
+          right: screenwidth(context) * 0.03,
           top: screenwidth(context) * 0.07,
           bottom: screenwidth(context) * 0.03),
       child: GridView(
